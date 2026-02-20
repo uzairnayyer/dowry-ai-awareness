@@ -121,7 +121,7 @@ dowry-ai-awareness/
 ```
 ---
 
-##Getting started
+## Getting started
 
 **1. Clone the repo**
 ```
@@ -162,4 +162,4 @@ http://127.0.0.1:5000/
 ```
 
 
-##Say NO to dowry. Support simple, merciful, and just marriages.##
+## Say NO to dowry. Support simple, merciful, and just marriages
