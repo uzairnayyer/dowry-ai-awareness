@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dowry AI – Jahaiz Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        
+        <section id="welcome-screen" class="screen active">
+            <div class="card welcome-card">
+                <div class="bg-decoration">
+                    <div class="circle circle-1"></div>
+                    <div class="circle circle-2"></div>
+                    <div class="circle circle-3"></div>
+                </div>
+                
+                <div class="card-content">
+                    <div class="logo-container">
+                        <div class="logo">
+                            <span class="logo-text">AI</span>
+                            <div class="logo-ring"></div>
+                        </div>
+                    </div>
+                    
+                    <h1 class="title">Dowry AI</h1>
+                    <p class="subtitle">Jahaiz Calculator</p>
+                    
+                    <div class="divider"></div>
+                    
+                    <div class="hero-section">
+                        <p class="hero-text">
+                            Answer a few questions to calculate the "perfect" jahaiz...
+                        </p>
+                    </div>
+                    
+                    <button class="btn btn-primary btn-large" onclick="showScreen('form-screen')">
+                        <span>Start Calculation</span>
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                    
+                    <p class="note">
+                        <svg class="note-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 16v-4M12 8h.01"/>
+                        </svg>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="form-screen" class="screen">
+            <div class="card form-card">
+                <div class="card-header">
+                    <div class="header-content">
+                        <h2 class="card-title">Jahaiz Input Form</h2>
+                        <p class="card-subtitle">Fill in these details and let the AI do the job.</p>
+                    </div>
+                    <div class="step-indicator">
+                        <span class="step active">1</span>
+                        <span class="step-line"></span>
+                        <span class="step">2</span>
+                        <span class="step-line"></span>
+                        <span class="step">3</span>
+                    </div>
+                </div>
+                
+                <div class="divider"></div>
+                
+                <form id="jahaiz-form" class="form-content">
+                    <div class="form-section">
+                        <div class="section-header">
+                            <div class="section-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                            </div>
+                            <h3 class="section-title">Basic Information</h3>
+                        </div>
+                        
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="userName" class="form-label">Your Name</label>
+                                <input 
+                                    type="text" 
+                                    id="userName" 
+                                    name="userName" 
+                                    class="form-input" 
+                                    placeholder="Enter your name"
+                                >
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="userRole" class="form-label">You are from</label>
+                                <div class="select-wrapper">
+                                    <select id="userRole" name="userRole" class="form-select">
+                                        <option value="Groom side">Groom's Side</option>
+                                        <option value="Bride side">Bride's Side</option>
+                                    </select>
+                                    <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M6 9l6 6 6-6"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <div class="section-header">
+                            <div class="section-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                </svg>
+                            </div>
+                            <h3 class="section-title">Financial Details</h3>
+                        </div>
+                        
+                        <div class="form-grid form-grid-3">
+                            <div class="form-group">
+                                <label for="monthlyIncome" class="form-label">Monthly Income</label>
+                                <div class="input-wrapper">
+                                    <span class="input-prefix">PKR</span>
+                                    <input 
+                                        type="number" 
+                                        id="monthlyIncome" 
+                                        name="monthlyIncome" 
+                                        class="form-input has-prefix" 
+                                        placeholder="0"
+                                    >
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="monthlyExpenses" class="form-label">Monthly Expenses</label>
+                                <div class="input-wrapper">
+                                    <span class="input-prefix">PKR</span>
+                                    <input 
+                                        type="number" 
+                                        id="monthlyExpenses" 
+                                        name="monthlyExpenses" 
+                                        class="form-input has-prefix" 
+                                        placeholder="0"
+                                    >
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="savings" class="form-label">Total Savings</label>
+                                <div class="input-wrapper">
+                                    <span class="input-prefix">PKR</span>
+                                    <input 
+                                        type="number" 
+                                        id="savings" 
+                                        name="savings" 
+                                        class="form-input has-prefix" 
+                                        placeholder="0"
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <div class="section-header">
+                            <div class="section-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                                </svg>
+                            </div>
+                            <h3 class="section-title">Expectations</h3>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="furnitureLevel" class="form-label">Furniture Level</label>
+                            <div class="radio-cards">
+                                <label class="radio-card">
+                                    <input type="radio" name="furnitureLevel" value="Basic" checked>
+                                    <div class="radio-card-content">
+                                        <span class="radio-card-label">Basic</span>
+                                        <span class="radio-card-desc">Simple & functional</span>
+                                    </div>
+                                </label>
+                                <label class="radio-card">
+                                    <input type="radio" name="furnitureLevel" value="Medium">
+                                    <div class="radio-card-content">
+                                        <span class="radio-card-label">Medium</span>
+                                        <span class="radio-card-desc">Comfortable & stylish</span>
+                                    </div>
+                                </label>
+                                <label class="radio-card">
+                                    <input type="radio" name="furnitureLevel" value="Luxury">
+                                    <div class="radio-card-content">
+                                        <span class="radio-card-label">Luxury</span>
+                                        <span class="radio-card-desc">Premium & elegant</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Appliances Expected</label>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-card">
+                                    <input type="checkbox" name="appliances" value="Fridge">
+                                    <div class="checkbox-card-content">
+                                        <span class="checkbox-label">Refrigerator</span>
+                                    </div>
+                                    <div class="checkbox-indicator"></div>
+                                </label>
+                                <label class="checkbox-card">
+                                    <input type="checkbox" name="appliances" value="AC">
+                                    <div class="checkbox-card-content">
+                                        <span class="checkbox-label">Air Conditioner</span>
+                                    </div>
+                                    <div class="checkbox-indicator"></div>
+                                </label>
+                                <label class="checkbox-card">
+                                    <input type="checkbox" name="appliances" value="LED TV">
+                                    <div class="checkbox-card-content">
+                                        <span class="checkbox-label">LED TV</span>
+                                    </div>
+                                    <div class="checkbox-indicator"></div>
+                                </label>
+                                <label class="checkbox-card">
+                                    <input type="checkbox" name="appliances" value="Washing Machine">
+                                    <div class="checkbox-card-content">
+                                        <span class="checkbox-label">Washing Machine</span>
+                                    </div>
+                                    <div class="checkbox-indicator"></div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Vehicle Expectation</label>
+                            <div class="vehicle-options">
+                                <label class="vehicle-option">
+                                    <input type="radio" name="vehicleChoice" value="No vehicle" checked>
+                                    <div class="vehicle-option-content">
+                                        <span class="vehicle-label">No Vehicle</span>
+                                    </div>
+                                </label>
+                                <label class="vehicle-option">
+                                    <input type="radio" name="vehicleChoice" value="Bike">
+                                    <div class="vehicle-option-content">
+                                        <span class="vehicle-label">Motorcycle</span>
+                                    </div>
+                                </label>
+                                <label class="vehicle-option">
+                                    <input type="radio" name="vehicleChoice" value="Small Car">
+                                    <div class="vehicle-option-content">
+                                        <span class="vehicle-label">Small Car</span>
+                                    </div>
+                                </label>
+                                <label class="vehicle-option">
+                                    <input type="radio" name="vehicleChoice" value="Luxury Car">
+                                    <div class="vehicle-option-content">
+                                        <span class="vehicle-label">Luxury Car</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="showScreen('welcome-screen')">
+                            <svg class="btn-icon-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M19 12H5M12 19l-7-7 7-7"/>
+                            </svg>
+                            Back
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            Calculate "Jahaiz"
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section id="result-screen" class="screen">
+            <div class="card result-card">
+                <div id="fake-result" class="result-content">
+                </div>
+                
+                <div id="real-message" class="result-content hidden">
+                </div>
+            </div>
+        </section>
+
+        <div id="thank-you-modal" class="modal">
+            <div class="modal-overlay" onclick="closeModal()"></div>
+            <div class="modal-content">
+                
+                <h3 class="modal-title">Thank You!</h3>
+                <p class="modal-text">
+                    JazakAllah for taking a stand<br><br>
+                    Please start conversations with your family and friends about ending the dowry system.<br><br>
+                    <strong>Jahaiz is not an Islamic requirement.</strong><br>
+                    Support simple nikah, justice, and kindness.
+                </p>
+                <button class="btn btn-primary" onclick="closeModal()">Close</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
